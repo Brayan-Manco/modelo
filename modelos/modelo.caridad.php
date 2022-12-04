@@ -10,12 +10,12 @@ class ModeloCaridad {
 
     static public function mdlCaridad($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(NombreCaridad, DescripcionCaridad, LogoCaridad) 
-        VALUES (:NombreCaridad, :DescripcionCaridad, :LogoCaridad)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(NombreCaridad, Descripcion, logoCaridad) 
+        VALUES (:NombreCaridad, :Descripcion, :logoCaridad)");
 
         $stmt->bindParam(":NombreCaridad", $datos["NombreCaridad"], PDO::PARAM_STR);
-        $stmt->bindParam(":DescripcionCaridad", $datos["DescripcionCaridad"], PDO::PARAM_STR);
-        $stmt->bindParam(":LogoCaridad", $datos["LogoCaridad"], PDO::PARAM_STR);
+        $stmt->bindParam(":Descripcion", $datos["Descripcion"], PDO::PARAM_STR);
+        $stmt->bindParam(":logoCaridad", $datos["logoCaridad"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

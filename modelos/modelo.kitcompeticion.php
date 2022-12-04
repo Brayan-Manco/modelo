@@ -9,11 +9,11 @@ class ModelosKitCompeticion {
 
     static public function mdlKitcompeticion($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(OpcionKit, ValorKit) 
-        VALUES (:OpcionKit,:ValorKit)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(opcionkit, valorkit) 
+        VALUES (:opcionkit,:valorkit)");
 
-        $stmt->bindParam(":OpcionKit", $datos["OpcionKit"], PDO::PARAM_STR);
-        $stmt->bindParam(":ValorKit", $datos["ValorKit"], PDO::PARAM_STR);
+        $stmt->bindParam(":opcionkit", $datos["opcionkit"], PDO::PARAM_STR);
+        $stmt->bindParam(":valorkit", $datos["valorkit"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

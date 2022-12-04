@@ -10,10 +10,10 @@ class ModeloEstadoRegistro {
 
     static public function mdlEstadoRegistro($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(EstadoRegistro) 
-        VALUES (:EstadoRegistro)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(estadoRegistro) 
+        VALUES (:estadoRegistro)");
 
-        $stmt->bindParam(":EstadoRegistro", $datos["EstadoRegistro"], PDO::PARAM_STR);
+        $stmt->bindParam(":estadoRegistro", $datos["estadoRegistro"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

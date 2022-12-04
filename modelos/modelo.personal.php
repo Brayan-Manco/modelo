@@ -1,6 +1,6 @@
 <?php
 
-class ModeloPersona{
+class ModeloPersonal{
     
     /*=============================================
     tabla personal
@@ -10,16 +10,16 @@ class ModeloPersona{
 
     static public function mdlPersonal($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Nombres, Apellidos, FechaNacimiento, Genero,Comentarios,FK_RolID,FK_PosicionID) 
-        VALUES (:Nombres, :Apellidos,:FechaNacimiento,:Genero,:Comentarios,:FK_RolID,:FK_PosicionID)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Nombres, Apellidos, FechaNacimiento, Genero,Comentarios,fk_RolID,fk_PosicionID) 
+        VALUES (:Nombres, :Apellidos,:FechaNacimiento,:Genero,:Comentarios,:fk_RolID,:fk_PosicionID)");
 
         $stmt->bindParam(":Nombres", $datos["Nombres"], PDO::PARAM_STR);
         $stmt->bindParam(":Apellidos", $datos["Apellidos"], PDO::PARAM_STR);
         $stmt->bindParam(":FechaNacimiento", $datos["FechaNacimiento"], PDO::PARAM_STR);
         $stmt->bindParam(":Genero", $datos["Genero"], PDO::PARAM_STR);
         $stmt->bindParam(":Comentarios", $datos["Comentarios"], PDO::PARAM_STR);
-        $stmt->bindParam(":FK_RolID", $datos["FK_RolID"], PDO::PARAM_STR);
-        $stmt->bindParam(":FK_PosicionID", $datos["FK_PosicionID"], PDO::PARAM_STR);
+        $stmt->bindParam(":fk_RolID", $datos["fk_RolID"], PDO::PARAM_STR);
+        $stmt->bindParam(":fk_PosicionID", $datos["fk_PosicionID"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

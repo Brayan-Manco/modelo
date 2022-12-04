@@ -1,22 +1,22 @@
 <?php
 
-class ModeloVoluntario {
-    
+class ModeloCorredor {
+        
     /*=============================================
-    tabla voluntario
+    tabla hojatiempo
     =============================================*/
 
     //funcio crear 
 
-    static public function mdlVoluntario($tabla, $datos){
+    static public function mdlCorredor($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Nombres, Apellidos, fk_PaisID, fk_GeneroID) 
-        VALUES (:Nombres, :Apellidos,:fk_PaisID,:fk_GeneroID)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(FechaNacimiento, fk_GeneroID, fk_UsuarioID, fk_PaisID) 
+        VALUES (:FechaNacimiento, :fk_GeneroID,:fk_UsuarioID,:fk_PaisID)");
 
-        $stmt->bindParam(":Nombres", $datos["Nombres"], PDO::PARAM_STR);
-        $stmt->bindParam(":Apellidos", $datos["Apellidos"], PDO::PARAM_STR);
-        $stmt->bindParam(":fk_PaisID", $datos["fk_PaisID"], PDO::PARAM_STR);
+        $stmt->bindParam(":FechaNacimiento", $datos["FechaNacimiento"], PDO::PARAM_STR);
         $stmt->bindParam(":fk_GeneroID", $datos["fk_GeneroID"], PDO::PARAM_STR);
+        $stmt->bindParam(":fk_UsuarioID", $datos["fk_UsuarioID"], PDO::PARAM_STR);
+        $stmt->bindParam(":fk_PaisID", $datos["fk_PaisID"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 
@@ -34,7 +34,7 @@ class ModeloVoluntario {
 
     // funcion mostrar
 
-    static public function mdlSeleccionarVoluntario($tabla){
+    static public function mdlSeleccionarCorredor($tabla){
 
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ");
 
@@ -43,4 +43,5 @@ class ModeloVoluntario {
         $stmt->close();
         $stmt = null;
     }
+
 }

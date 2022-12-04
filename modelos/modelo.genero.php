@@ -10,10 +10,10 @@ class ModelosGenero{
 
     static public function mdlGenero($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Genero) 
-        VALUES (:Genero)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(genero) 
+        VALUES (:genero)");
 
-        $stmt->bindParam(":Genero", $datos["Genero"], PDO::PARAM_STR);
+        $stmt->bindParam(":genero", $datos["genero"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

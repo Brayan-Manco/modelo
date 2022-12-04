@@ -10,13 +10,13 @@ class ModeloHojatiempo {
 
     static public function mdlHojatiempo($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(FechaInicio, FechaFinal, ValorPagar, FK_PersonalID) 
-        VALUES (:FechaInicio, :FechaFinal,:ValorPagar,:FK_PersonalID)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(FechaInicio, FechaFinal, ValorPagar, fk_PersonalID) 
+        VALUES (:FechaInicio, :FechaFinal,:ValorPagar,:fk_PersonalID)");
 
         $stmt->bindParam(":FechaInicio", $datos["FechaInicio"], PDO::PARAM_STR);
         $stmt->bindParam(":FechaFinal", $datos["FechaFinal"], PDO::PARAM_STR);
         $stmt->bindParam(":ValorPagar", $datos["ValorPagar"], PDO::PARAM_STR);
-        $stmt->bindParam(":FK_PersonalID", $datos["FK_PersonalID"], PDO::PARAM_STR);
+        $stmt->bindParam(":fk_PersonalID", $datos["fk_PersonalID"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 

@@ -10,10 +10,10 @@ class ModeloRol {
 
     static public function mdlRol($tabla, $datos){
 
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Rol) 
-        VALUES (:Rol)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(rol) 
+        VALUES (:rol)");
 
-        $stmt->bindParam(":Rol", $datos["Rol"], PDO::PARAM_STR);
+        $stmt->bindParam(":rol", $datos["rol"], PDO::PARAM_STR);
 
         if($stmt->execute()){
 
